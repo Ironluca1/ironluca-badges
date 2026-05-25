@@ -8,15 +8,15 @@
     },
     {
         "id": "vip-badge",
-        "description": "VIP",
-        "iconSrc": "https://i.imgur.com/anderesBild.png",
+        "description": "My goat mwah",
+        "iconSrc": "https://i.imgur.com/4k4XBmf.png",
         "link": "https://ironluca.site",
         "users": ["1376576250377801890", "123456789012345678"]
     },
     {
         "id": "staff-badge",
-        "description": "Staff",
-        "iconSrc": "https://i.imgur.com/nochEinBild.png",
+        "description": "Ironluca Staff",
+        "iconSrc": "https://i.imgur.com/949Mhsc.png",
         "link": "https://ironluca.site",
         "users": ["123456789012345678"]
     }
