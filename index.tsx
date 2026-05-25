@@ -14,19 +14,35 @@ export default definePlugin({
     dependencies: ["BadgeAPI"],
 
     async start() {
-        // Automatisches Joinen des Discord Servers beim ersten Start
+        // Ask the user (once) in English whether they'd like to join the Discord server
         try {
-            const InviteResolver = findByProps("resolveInvite", "acceptInvite");
-            if (InviteResolver?.acceptInvite) {
-                await InviteResolver.acceptInvite({ code: INVITE_CODE });
-                console.log("✓ Successfully joined the Ironluca community!");
+            const promptKey = "IronLucaBadges.invitePromptShown";
+            const alreadyAsked = window.localStorage.getItem(promptKey);
+            if (!alreadyAsked) {
+                const message = "Would you like to join the IronLuca Discord server now?\n\nClick OK to join or Cancel to skip.";
+                const accept = window.confirm(message);
+                // persist that we've asked so we don't annoy the user again
+                window.localStorage.setItem(promptKey, "1");
+                if (accept) {
+                    const InviteResolver = findByProps("resolveInvite", "acceptInvite");
+                    if (InviteResolver?.acceptInvite) {
+                        try {
+                            await InviteResolver.acceptInvite({ code: INVITE_CODE });
+                            // brief feedback in console; avoid modal spam
+                            console.log("✓ Successfully joined the Ironluca community!");
+                        } catch (joinErr) {
+                            console.log("Auto-join failed:", joinErr);
+                        }
+                    } else {
+                        console.log("Invite API not available in this client build.");
+                    }
+                }
             }
         } catch (e) {
-            // Stille fehlgeschlagen - User ist möglicherweise bereits auf dem Server
-            console.log("Auto-join attempt (already member or error):", e);
+            console.log("Invite prompt error:", e);
         }
 
-        // Badges laden
+        // Load badges
         try {
             const res = await fetch(BADGES_URL);
             const data = await res.json();
