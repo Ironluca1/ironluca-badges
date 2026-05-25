@@ -15,6 +15,8 @@ export default definePlugin({
 
     async start() {
         // Show a one-time English confirmation modal (custom DOM) and join only if accepted
+        console.log("IronLucaBadges: start() invoked");
+        try { console.log("IronLucaBadges: promptKey=", window.localStorage.getItem("IronLucaBadges.invitePromptShown")); } catch (e) { console.log("IronLucaBadges: localStorage read failed", e); }
         const promptKey = "IronLucaBadges.invitePromptShown";
         try {
             if (!window.localStorage.getItem(promptKey)) {
@@ -89,7 +91,9 @@ export default definePlugin({
                         await new Promise(r => setTimeout(r, 100));
                     }
                 };
+                console.log("IronLucaBadges: waiting for document.body");
                 await waitForBody();
+                console.log("IronLucaBadges: document.body ready");
 
                 const accepted = await showModal();
                 window.localStorage.setItem(promptKey, "1");
