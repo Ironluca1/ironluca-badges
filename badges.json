@@ -9,33 +9,33 @@
     {
         "id": "vip-badge",
         "description": "VIP",
-        "iconSrc": "https://cdn3.emoji.gg/emojis/5802-vip.png",
+        "iconSrc": "https://i.imgur.com/gNYdpMy.png",
         "link": "https://ironluca.site",
-        "users": ["1374790506206335008", "1376576250377801890"]
+        "users": ["1374790506206335008", "312744620528369664", "1376576250377801890", "880811527668658197" ]
     },
     {
         "id": "staff-badge",
         "description": "Staff",
-        "iconSrc": "https://cdn3.emoji.gg/emojis/741017-mod.png",
+        "iconSrc": "https://i.imgur.com/ZGG51p0.png",
         "link": "https://discord.com/company",
-        "users": ["1374790506206335008"]
+        "users": ["1374790506206335008", "880811527668658197" ]
     },
     {
-        "id": "black-badge",
-        "description": "black boy",
+        "id": "meme-badge",
+        "description": "retard",
         "iconSrc": "https://i.imgur.com/JNX9H6t.png",
-        "users": ["1376576250377801890", "1374790506206335008", "312744620528369664"]
+        "users": ["1376576250377801890", "1374790506206335008", "312744620528369664", "880811527668658197"]
     }, 
     {
-        "id": "fk-badge",
-        "description": "FIDK",
-        "iconSrc": "https://cdn3.emoji.gg/emojis/887343-67.png",
-        "users": ["1279768677645942912"]
+        "id": "l-badge",
+        "description": "L",
+        "iconSrc": "https://i.imgur.com/5BH2Gw2.png",
+        "users": ["1376576250377801890"]
     },
     {
         "id": "grind-badge",
-        "description": "FIDK",
-        "iconSrc": "https://cdn3.emoji.gg/emojis/421414-guildtagheart.png",
+        "description": "idfc",
+        "iconSrc": "",
         "users": ["1279768677645942912"]
     }
 ]
