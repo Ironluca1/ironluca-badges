@@ -1,36 +1,41 @@
 [
     {
-        "id": "ironluca-boy",
-        "description": "@ironluca boy",
+        "id": "ironluca-badge",
+        "description": "@ironlucaaa",
         "iconSrc": "https://i.imgur.com/e4z7dcW.png",
         "link": "https://ironluca.site",
         "users": ["1374790506206335008"]
     },
     {
         "id": "vip-badge",
-        "description": "My goat mwah",
-        "iconSrc": "https://i.imgur.com/4k4XBmf.png",
+        "description": "VIP",
+        "iconSrc": "https://cdn3.emoji.gg/emojis/5802-vip.png",
         "link": "https://ironluca.site",
         "users": ["1374790506206335008", "1376576250377801890"]
     },
     {
         "id": "staff-badge",
-        "description": "Ironluca Staff",
-        "iconSrc": "https://i.imgur.com/949Mhsc.png",
-        "link": "https://ironluca.site",
+        "description": "Staff",
+        "iconSrc": "https://cdn3.emoji.gg/emojis/741017-mod.png",
+        "link": "https://discord.com/company",
         "users": ["1374790506206335008"]
     },
     {
-        "id": "blackn",
+        "id": "black-badge",
         "description": "black boy",
         "iconSrc": "https://i.imgur.com/JNX9H6t.png",
-        "link": "https://de.pornhub.org/",
         "users": ["1376576250377801890", "1374790506206335008", "312744620528369664"]
     }, 
     {
         "id": "fk-badge",
         "description": "FIDK",
         "iconSrc": "https://cdn3.emoji.gg/emojis/887343-67.png",
+        "users": ["1279768677645942912"]
+    },
+    {
+        "id": "grind-badge",
+        "description": "FIDK",
+        "iconSrc": "https://cdn3.emoji.gg/emojis/421414-guildtagheart.png",
         "users": ["1279768677645942912"]
     }
 ]
