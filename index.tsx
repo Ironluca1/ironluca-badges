@@ -6,8 +6,8 @@ const BADGES_URL = "https://raw.githubusercontent.com/Ironluca1/ironluca-badges/
 let registeredBadges: ProfileBadge[] = [];
 
 export default definePlugin({
-    name: "IronLucaCustomBadges",
-    description: "Zeigt das @ironluca boy Badge nur für Leute mit diesem Plugin",
+    name: "Ironluca-badges",
+    description: "Shows custom badges",
     authors: [{ name: "Ironluca", id: 0n as any }],
     dependencies: ["BadgeAPI"],
 
