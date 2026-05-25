@@ -18,7 +18,7 @@
         "description": "Staff",
         "iconSrc": "https://i.imgur.com/ZGG51p0.png",
         "link": "https://discord.com/company",
-        "users": ["1374790506206335008", "880811527668658197" ]
+        "users": []
     },
     {
         "id": "meme-badge",
@@ -30,12 +30,12 @@
         "id": "l-badge",
         "description": "L",
         "iconSrc": "https://i.imgur.com/5BH2Gw2.png",
-        "users": ["1376576250377801890", "312744620528369664"]
+        "users": []
     },
     {
         "id": "grind-badge",
         "description": "idfc",
         "iconSrc": "",
-        "users": ["1279768677645942912"]
+        "users": []
     }
 ]
