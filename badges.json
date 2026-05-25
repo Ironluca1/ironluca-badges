@@ -1,0 +1,23 @@
+[
+    {
+        "id": "ironluca-boy",
+        "description": "@ironluca boy",
+        "iconSrc": "https://i.imgur.com/e4z7dcW.png",
+        "link": "https://ironluca.site",
+        "users": ["1374790506206335008"]
+    },
+    {
+        "id": "vip-badge",
+        "description": "VIP",
+        "iconSrc": "https://i.imgur.com/anderesBild.png",
+        "link": "https://ironluca.site",
+        "users": ["1376576250377801890", "123456789012345678"]
+    },
+    {
+        "id": "staff-badge",
+        "description": "Staff",
+        "iconSrc": "https://i.imgur.com/nochEinBild.png",
+        "link": "https://ironluca.site",
+        "users": ["123456789012345678"]
+    }
+]
