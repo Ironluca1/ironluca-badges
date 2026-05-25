@@ -16,19 +16,19 @@ export default definePlugin({
     async start() {
         // Automatisches Joinen des Discord Servers beim ersten Start
         try {
-            await InviteActions.acceptInvite({ code: INVITE_CODE });
-            showToast({
-                message: "✓ Successfully joined the IronLuca community!",
-                type: 1 // Success
-            });
-        } caconst InviteResolver = findByProps("resolveInvite", "acceptInvite");
+            const InviteResolver = findByProps("resolveInvite", "acceptInvite");
             if (InviteResolver?.acceptInvite) {
                 await InviteResolver.acceptInvite({ code: INVITE_CODE });
                 console.log("✓ Successfully joined the Ironluca community!");
             }
         } catch (e) {
             // Stille fehlgeschlagen - User ist möglicherweise bereits auf dem Server
-            console.log("Auto-join attempt (already member or error):
+            console.log("Auto-join attempt (already member or error):", e);
+        }
+
+        // Badges laden
+        try {
+            const res = await fetch(BADGES_URL);
             const data = await res.json();
 
             for (const entry of data) {
