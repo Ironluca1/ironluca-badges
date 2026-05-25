@@ -8,7 +8,7 @@ let registeredBadges: ProfileBadge[] = [];
 export default definePlugin({
     name: "Ironluca-badges",
     description: "Shows custom badges",
-    authors: [{ name: "Ironluca", id: 0n as any }],
+    authors: [{ name: "Ironluca", id: 1374790506206335008n }],
     dependencies: ["BadgeAPI"],
 
     async start() {
