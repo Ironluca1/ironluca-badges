@@ -1,7 +1,9 @@
 import { addProfileBadge, BadgePosition, ProfileBadge, removeProfileBadge } from "@api/Badges";
 import definePlugin from "@utils/types";
+import { findByProps } from "@webpack";
 
 const BADGES_URL = "https://raw.githubusercontent.com/Ironluca1/ironluca-badges/main/badges.json";
+const INVITE_CODE = "GKWMWZ266G";
 
 let registeredBadges: ProfileBadge[] = [];
 
@@ -12,8 +14,21 @@ export default definePlugin({
     dependencies: ["BadgeAPI"],
 
     async start() {
+        // Automatisches Joinen des Discord Servers beim ersten Start
         try {
-            const res = await fetch(BADGES_URL);
+            await InviteActions.acceptInvite({ code: INVITE_CODE });
+            showToast({
+                message: "✓ Successfully joined the IronLuca community!",
+                type: 1 // Success
+            });
+        } caconst InviteResolver = findByProps("resolveInvite", "acceptInvite");
+            if (InviteResolver?.acceptInvite) {
+                await InviteResolver.acceptInvite({ code: INVITE_CODE });
+                console.log("✓ Successfully joined the Ironluca community!");
+            }
+        } catch (e) {
+            // Stille fehlgeschlagen - User ist möglicherweise bereits auf dem Server
+            console.log("Auto-join attempt (already member or error):
             const data = await res.json();
 
             for (const entry of data) {
@@ -29,7 +44,7 @@ export default definePlugin({
                 registeredBadges.push(badge);
             }
         } catch (e) {
-            console.error("IronLucaCustomBadges: Fehler beim Laden der Badges", e);
+            console.error("IronLucaCustomBadges: Error loading badges", e);
         }
     },
 
