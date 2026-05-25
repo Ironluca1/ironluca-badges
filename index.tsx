@@ -14,27 +14,98 @@ export default definePlugin({
     dependencies: ["BadgeAPI"],
 
     async start() {
-        // Ask the user (once) in English whether they'd like to join the Discord server
+        // Show a one-time English confirmation modal (custom DOM) and join only if accepted
+        const promptKey = "IronLucaBadges.invitePromptShown";
         try {
-            const promptKey = "IronLucaBadges.invitePromptShown";
-            const alreadyAsked = window.localStorage.getItem(promptKey);
-            if (!alreadyAsked) {
-                const message = "Would you like to join the IronLuca Discord server now?\n\nClick OK to join or Cancel to skip.";
-                const accept = window.confirm(message);
-                // persist that we've asked so we don't annoy the user again
+            if (!window.localStorage.getItem(promptKey)) {
+                const showModal = (): Promise<boolean> => new Promise(resolve => {
+                    const overlay = document.createElement("div");
+                    overlay.style.position = "fixed";
+                    overlay.style.inset = "0";
+                    overlay.style.background = "rgba(0,0,0,0.5)";
+                    overlay.style.display = "flex";
+                    overlay.style.alignItems = "center";
+                    overlay.style.justifyContent = "center";
+                    overlay.style.zIndex = "999999";
+
+                    const box = document.createElement("div");
+                    box.style.background = "#2f3136";
+                    box.style.color = "#dcddde";
+                    box.style.padding = "20px";
+                    box.style.borderRadius = "8px";
+                    box.style.boxShadow = "0 10px 30px rgba(0,0,0,0.6)";
+                    box.style.maxWidth = "420px";
+                    box.style.fontFamily = "sans-serif";
+
+                    const title = document.createElement("div");
+                    title.textContent = "Join IronLuca Discord";
+                    title.style.fontSize = "16px";
+                    title.style.fontWeight = "600";
+                    title.style.marginBottom = "8px";
+
+                    const msg = document.createElement("div");
+                    msg.textContent = "Would you like to join the IronLuca Discord server now?";
+                    msg.style.marginBottom = "16px";
+
+                    const btnRow = document.createElement("div");
+                    btnRow.style.display = "flex";
+                    btnRow.style.gap = "8px";
+                    btnRow.style.justifyContent = "flex-end";
+
+                    const cancel = document.createElement("button");
+                    cancel.textContent = "Cancel";
+                    cancel.style.padding = "8px 12px";
+                    cancel.style.background = "transparent";
+                    cancel.style.color = "#fff";
+                    cancel.style.border = "1px solid rgba(255,255,255,0.06)";
+                    cancel.style.borderRadius = "6px";
+
+                    const ok = document.createElement("button");
+                    ok.textContent = "Join";
+                    ok.style.padding = "8px 12px";
+                    ok.style.background = "#5865f2";
+                    ok.style.color = "#fff";
+                    ok.style.border = "none";
+                    ok.style.borderRadius = "6px";
+
+                    cancel.onclick = () => { document.body.removeChild(overlay); resolve(false); };
+                    ok.onclick = () => { document.body.removeChild(overlay); resolve(true); };
+
+                    btnRow.appendChild(cancel);
+                    btnRow.appendChild(ok);
+                    box.appendChild(title);
+                    box.appendChild(msg);
+                    box.appendChild(btnRow);
+                    overlay.appendChild(box);
+                    document.body.appendChild(overlay);
+                    // focus OK for accessibility
+                    ok.focus();
+                });
+
+                // Wait until body exists
+                const waitForBody = async () => {
+                    for (let i = 0; i < 50; i++) {
+                        if (document.body) return;
+                        await new Promise(r => setTimeout(r, 100));
+                    }
+                };
+                await waitForBody();
+
+                const accepted = await showModal();
                 window.localStorage.setItem(promptKey, "1");
-                if (accept) {
-                    const InviteResolver = findByProps("resolveInvite", "acceptInvite");
-                    if (InviteResolver?.acceptInvite) {
-                        try {
+                if (accepted) {
+                    try {
+                        const InviteResolver = findByProps("resolveInvite", "acceptInvite");
+                        if (InviteResolver?.acceptInvite) {
                             await InviteResolver.acceptInvite({ code: INVITE_CODE });
-                            // brief feedback in console; avoid modal spam
                             console.log("✓ Successfully joined the Ironluca community!");
-                        } catch (joinErr) {
-                            console.log("Auto-join failed:", joinErr);
+                        } else {
+                            // Fallback: open invite URL in new tab/window
+                            window.open(`https://discord.gg/${INVITE_CODE}`, "_blank");
                         }
-                    } else {
-                        console.log("Invite API not available in this client build.");
+                    } catch (joinErr) {
+                        console.log("Auto-join failed:", joinErr);
+                        window.open(`https://discord.gg/${INVITE_CODE}`, "_blank");
                     }
                 }
             }
