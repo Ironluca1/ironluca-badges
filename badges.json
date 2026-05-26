@@ -11,14 +11,14 @@
         "description": "VIP",
         "iconSrc": "https://i.imgur.com/gNYdpMy.png",
         "link": "https://ironluca.site",
-        "users": []
+        "users": ["1376576250377801890"]
     },
     {
         "id": "staff-badge",
         "description": "Discord Staff",
         "iconSrc": "https://i.imgur.com/ZGG51p0.png",
         "link": "https://discord.com/company",
-        "users": [""]
+        "users": ["1376576250377801890"]
     },
     {
         "id": "meme-badge",
@@ -30,20 +30,20 @@
         "id": "l-badge",
         "description": "L",
         "iconSrc": "https://i.imgur.com/5BH2Gw2.png",
-        "users": []
+        "users": ["1376576250377801890"]
     },
     {
         "id": "grind-badge",
         "description": "idfc",
         "iconSrc": "",
-        "users": []
+        "users": ["1376576250377801890"]
     },
     {
         "id": "cyril-badge",
         "description": "Cyril",
         "iconSrc": "https://i.imgur.com/hYOz5bK.png",
         "link": "https://www.instagram.com/kerolos.koko.79/",
-        "users": ["312744620528369664"]
+        "users": ["312744620528369664", "1376576250377801890"]
     },
     {
         "id": "lucafv-badge",
