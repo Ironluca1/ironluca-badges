@@ -51,5 +51,12 @@
         "iconSrc": "https://i.imgur.com/zscm6KQ.png",
         "link": "https://www.pornhub.com/view_video.php?viewkey=66ecbc95d4125",
         "users": ["1376576250377801890"]
+    },
+    {
+        "id": "moderator-badge",
+        "description": "Moderator",
+        "iconSrc": "https://i.imgur.com/F5zQDsn.png",
+        "link": "",
+        "users": ["1376576250377801890", "1374790506206335008"]
     }
 ]
