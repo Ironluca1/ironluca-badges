@@ -37,5 +37,12 @@
         "description": "idfc",
         "iconSrc": "",
         "users": []
+    },
+    {
+        "id": "cyril-badge",
+        "description": "Cyril",
+        "iconSrc": "https://i.imgur.com/hYOz5bK.png",
+        "link": "https://www.instagram.com/kerolos.koko.79/",
+        "users": ["312744620528369664"]
     }
 ]
