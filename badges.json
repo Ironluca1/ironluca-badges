@@ -15,10 +15,10 @@
     },
     {
         "id": "staff-badge",
-        "description": "Staff",
+        "description": "Discord Staff",
         "iconSrc": "https://i.imgur.com/ZGG51p0.png",
         "link": "https://discord.com/company",
-        "users": []
+        "users": ["1376576250377801890"]
     },
     {
         "id": "meme-badge",
